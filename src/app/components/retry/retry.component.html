@@ -1,0 +1,28 @@
+<p>retry works!</p>
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>BODY</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of person">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.body}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <button (click)="Onsubmit()" class="btn btn-primary" type="button" >
+        <span *ngIf="fectching" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        {{fectching?'Fetching...' : 'Fetch Details'}}
+      </button>
+      <div class="mt-2">
+        <p>
+            status : <strong [ngClass]="{'text-success':status==='data fetched','text-danger':status === 'problem fetching data'}">{{status}}</strong>
+                <span  *ngIf="fectching" class="spinner-grow text-success ">Loading...</span>
+          </p>
+      </div>
+</div>
